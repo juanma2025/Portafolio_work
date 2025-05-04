@@ -45,7 +45,7 @@ export default function Navbar() {
                 <span className="text-white">&lt;/&gt;</span>
             </span>
             </span>
-            <span className="text-xl font-bold">Portfolio Desing</span>
+            <span className="text-xl font-bold">Juan</span>
         </Link>
 
         {/* Desktop Navigation */}

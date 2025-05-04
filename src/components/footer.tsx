@@ -1,16 +1,20 @@
 import type React from "react"
 import Link from "next/link"
-import { Instagram, Facebook, Linkedin } from "lucide-react"
+import { Facebook, Linkedin, InstagramIcon } from "lucide-react"
 
-// Clase para representar un ícono de red social
+
 class SocialIcon {
-  constructor(
-    public name: string,
-    public icon: React.ReactNode,
-    public href: string,
-  ) {}
+  name: string
+  icon: React.ReactNode
+  href: string 
 
-  render() {
+  constructor(name: string, icon: React.ReactNode, href: string) {
+    this.name = name
+    this.icon = icon 
+    this.href = href
+  }
+
+  render() { 
     return (
       <Link href={this.href} className="text-white hover:text-red-500 transition-colors" aria-label={this.name}>
         {this.icon}
@@ -20,10 +24,9 @@ class SocialIcon {
 }
 
 export default function Footer() {
-  // Crear instancias de SocialIcon usando programación orientada a objetos
   const socialIcons = [
-    new SocialIcon("Instagram", <Instagram size={20} />, "https://instagram.com"),
-    new SocialIcon("Facebook", <Facebook size={20} />, "https://facebook.com"),
+    new SocialIcon("Instagram", <InstagramIcon size={20} />, "https://instagram.com"),
+    new SocialIcon("Facebook", <Facebook size={20} />, "https://facebook.com/"),
     new SocialIcon("LinkedIn", <Linkedin size={20} />, "https://linkedin.com"),
   ]
 
