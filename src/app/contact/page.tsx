@@ -16,11 +16,56 @@ export default function ContactPage() {
                         <p className="text-zinc-300">juanmatabanchoyc@gmail.com</p>
                     </div>
 
-                    <div></div>
+                    <div className="space-y-2">
+                        <p className="font-medium">Phone</p>
+                        <p className="text-zinc-300">+57 3024993023</p>
+                    </div>
 
-
+                    <div className="space-y-2">
+                        <p className="font-medium">Address</p>
+                        <p className="text-zinc-300">Torres de fatima apto 1503 torre 1</p>
+                    </div>
                 </section>
 
+                <form className="space-y-4">
+                    <section className="space-y-2">
+                        <label htmlFor="name" className="block">
+                            Name
+                        </label>
+                        <input 
+                        type="text"
+                        id="name"
+                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
+                        required>
+                        </input>
+                    </section>
+
+                    <section className="space-y-2">
+                        <label htmlFor="name" className="block">
+                            Email
+                        </label>
+                        <input 
+                        type="text"
+                        id="name"
+                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
+                        required>
+                        </input>
+                    </section>
+
+                    <section className="space-y-2">
+                        <label htmlFor="name" className="block">
+                            Message
+                        </label>
+                        <textarea 
+                        id="Message"
+                        rows={5}
+                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
+                        required>
+                        </textarea>
+                    </section>
+
+                    <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-2">Send Message</Button>
+                </form>
             </span>
         </section>
     )
