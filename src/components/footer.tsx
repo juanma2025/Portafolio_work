@@ -1,6 +1,9 @@
 import type React from "react"
 import Link from "next/link"
-import { Facebook, Linkedin, InstagramIcon } from "lucide-react"
+import InstagramIcon from "public/icons/icons8-instagram-50.png"
+import FacebookIcon from "public/icons/icons8-facebook-nuevo-50.png"  
+import LinkedinIcon from "public/icons/icons8-linkedin-50.png"
+import { Instagram, Facebook, Linkedin } from "lucide-react"
 
 
 class SocialIcon {
@@ -25,10 +28,10 @@ class SocialIcon {
 
 export default function Footer() {
   const socialIcons = [
-    new SocialIcon("Instagram", <InstagramIcon size={20} />, "https://instagram.com"),
-    new SocialIcon("Facebook", <Facebook size={20} />, "https://facebook.com/"),
-    new SocialIcon("LinkedIn", <Linkedin size={20} />, "https://linkedin.com"),
-  ]
+    new SocialIcon("Instagram", <img src={InstagramIcon.src} alt="Instagram" />, "https://instagram.com"),
+    new SocialIcon("Facebook", <img src={FacebookIcon.src} alt="Facebook" />, "https://facebook.com"),
+    new SocialIcon("LinkedIn", <img src={LinkedinIcon.src} alt="LinkedIn" />, "https://linkedin.com"),
+  ];
 
   return (
     <footer className="bg-black text-white py-4 px-6 border-t border-zinc-800">
