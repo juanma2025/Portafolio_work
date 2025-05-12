@@ -1,25 +1,25 @@
 import type React from "react"
 import Link from "next/link"
-import InstagramIcon from "public/icons/icons8-instagram-50.png"
-import FacebookIcon from "public/icons/icons8-facebook-nuevo-50.png"  
-import LinkedinIcon from "public/icons/icons8-linkedin-50.png"
-import { Instagram, Facebook, Linkedin } from "lucide-react"
 
 
 class SocialIcon {
   name: string
   icon: React.ReactNode
-  href: string 
+  href: string
 
   constructor(name: string, icon: React.ReactNode, href: string) {
     this.name = name
-    this.icon = icon 
+    this.icon = icon
     this.href = href
   }
 
-  render() { 
+  render() {
     return (
-      <Link href={this.href} className="text-white hover:text-red-500 transition-colors" aria-label={this.name}>
+      <Link
+        href={this.href}
+        className="text-white hover:text-red-500 transition-colors"
+        aria-label={this.name}
+      >
         {this.icon}
       </Link>
     )
@@ -28,10 +28,34 @@ class SocialIcon {
 
 export default function Footer() {
   const socialIcons = [
-    new SocialIcon("Instagram", <img src={InstagramIcon.src} alt="Instagram" />, "https://instagram.com"),
-    new SocialIcon("Facebook", <img src={FacebookIcon.src} alt="Facebook" />, "https://facebook.com"),
-    new SocialIcon("LinkedIn", <img src={LinkedinIcon.src} alt="LinkedIn" />, "https://linkedin.com"),
-  ];
+    new SocialIcon(
+      "Instagram",
+      <img
+        src="/icons/icons8-instagram-50.png"
+        alt="Instagram"
+        className="w-6 h-6"
+      />,
+      "https://instagram.com"
+    ),
+    new SocialIcon(
+      "Facebook",
+      <img
+        src="/icons/icons8-facebook-nuevo-50.png"
+        alt="Facebook"
+        className="w-6 h-6"
+      />,
+      "https://facebook.com"
+    ),
+    new SocialIcon(
+      "LinkedIn",
+      <img
+        src="/icons/icons8-linkedin-50.png"
+        alt="LinkedIn"
+        className="w-6 h-6"
+      />,
+      "https://linkedin.com"
+    ),
+  ]
 
   return (
     <footer className="bg-black text-white py-4 px-6 border-t border-zinc-800">
