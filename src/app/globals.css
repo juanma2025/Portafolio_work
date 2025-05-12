@@ -1,5 +1,106 @@
+/* styles/global.css */
+
+/* Importaciones de Tailwind */
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
+/* Reset de márgenes y paddings */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Tipografía base */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background-color: #000000;
+  color: #ffffff;
+}
 
+/* Estilos para enlaces */
+a {
+  color: #f31c00;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Estilos para párrafos */
+p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* Estilos para botones */
+button,
+input[type="submit"] {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #005bb5;
+}
+
+/* Estilos para formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Estilos para la cabecera */
+header {
+  background-color: #000000;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
