@@ -1,10 +1,15 @@
-"use client"
+"use client";
+
+const THEME_LIGHT = "light"
+const THEME_DARK = "dark"
+
+
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
+import { useTheme } from "@/context/ThemeContext"
 
-// Clase para representar un elemento de navegación
 class NavItem {
     constructor(
     public label: string,
@@ -26,8 +31,28 @@ class NavItem {
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { theme, setTheme } = useTheme()
 
-  // Crear instancias de NavItem usando programación orientada a objetos
+  // Function to toggle between light and dark themes
+    const toggleTheme = () => {
+    setTheme(theme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT)
+    }
+
+  // Function to get the appropriate icon based on current theme
+    const getThemeIcon = () => {
+    return theme === THEME_DARK ? (
+        <Sun size={20} className="text-yellow-400" />
+    ) : (
+        <Moon size={20} className="text-zinc-800" />
+    )
+    }
+
+  // Function to get the appropriate aria-label text
+    const getAriaLabel = () => {
+    return theme === THEME_DARK ? "Switch to Light Mode" : "Switch to Dark Mode"
+    }
+
+  // Create NavItem instances using object-oriented programming
     const navItems = [
     new NavItem("HOME", "/"),
     new NavItem("ABOUT MY", "/about"),
@@ -37,7 +62,7 @@ export default function Navbar() {
     ]
 
     return (
-    <header className="bg-black text-white py-4 px-6 border-b border-zinc-800">
+    <header className="bg-white dark:bg-black text-black dark:text-white py-4 px-6 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <section className="max-w-screen-xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
             <span className="border border-red-600 p-1">
@@ -45,7 +70,7 @@ export default function Navbar() {
                 <span className="text-white">&lt;/&gt;</span>
             </span>
             </span>
-            <span className="text-xl font-bold">Juan</span>
+            <span className="text-xl font-bold">Portfolio Desing</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -53,17 +78,37 @@ export default function Navbar() {
             {navItems.map((item) => (
             <span key={item.href}>{item.render()}</span>
             ))}
+
+          {/* Theme Toggle Button */}
+            <button
+            onClick={toggleTheme}
+            className="ml-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            aria-label={getAriaLabel()}
+            >
+            {getThemeIcon()}
+            </button>
         </nav>
 
         {/* Mobile Navigation Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="md:hidden flex items-center">
+          {/* Theme Toggle Button on mobile */}
+            <button
+            onClick={toggleTheme}
+            className="mr-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            aria-label={getAriaLabel()}
+            >
+            {getThemeIcon()}
+            </button>
+
+            <button className="text-black dark:text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+            </button>
+        </div>
         </section>
 
-      {/* Mobile Navigation Menu */}
+       {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-        <nav className="md:hidden absolute top-16 left-0 right-0 bg-black z-50 border-b border-zinc-800">
+        <nav className="md:hidden absolute top-16 left-0 right-0 bg-white dark:bg-black z-50 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
             <section className="max-w-screen-xl mx-auto py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
                 <Link
