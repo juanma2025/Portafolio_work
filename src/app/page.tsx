@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
+import { Facebook, Linkedin, Instagram } from "lucide-react"
 export default function Home() {
   return (
     <section className="max-w-screen-xl mx-auto px-4 py-12 md:py-24">
@@ -15,6 +15,30 @@ export default function Home() {
           <Link href="/contact">
             <Button className="bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2">CONTACT ME</Button>
           </Link>
+
+          <div className="flex items-center space-x-4 pt-4">
+              <Link
+                href="https://instagram.com"
+                className="text-white hover:text-red-500 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} />
+              </Link>
+              <Link
+                href="https://facebook.com"
+                className="text-white hover:text-red-500 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook size={24} />
+              </Link>
+              <Link
+                href="https://linkedin.com"
+                className="text-white hover:text-red-500 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={24} />
+              </Link>
+            </div>
         </section>
 
         <figure className="w-full md:w-1/2 flex justify-end md:justify-center">

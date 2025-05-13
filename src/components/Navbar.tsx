@@ -3,8 +3,6 @@
 const THEME_LIGHT = "light"
 const THEME_DARK = "dark"
 
-
-
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, Sun, Moon } from "lucide-react"
@@ -65,10 +63,8 @@ export default function Navbar() {
     <header className="bg-white dark:bg-black text-black dark:text-white py-4 px-6 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <section className="max-w-screen-xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
-            <span className="border border-red-600 p-1">
-            <span className="bg-red-600 p-1">
-                <span className="text-white">&lt;/&gt;</span>
-            </span>
+            <span className="bg-red-600 p-2">
+              <span className="text-white">&lt;/&gt;</span>
             </span>
             <span className="text-xl font-bold">Portfolio Desing</span>
         </Link>

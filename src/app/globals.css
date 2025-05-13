@@ -44,19 +44,6 @@
   --muted-foreground: var(--zinc-400);
 }
 
-/* Modo light-plus */
-.light-plus {
-  --background: var(--light-plus-bg);
-  --foreground: var(--light-plus-text);
-  --border: var(--light-plus-border);
-  --card: var(--light-plus-border);
-  --card-foreground: var(--light-plus-text);
-  --muted: var(--light-plus-border);
-  --muted-foreground: var(--light-plus-accent);
-  box-sizing: border-box;
-}
-
-
 body {
   color: rgb(var(--foreground));
   background-color: rgb(var(--background));
@@ -159,22 +146,6 @@ a:focus {
   background-color: rgb(255, 255, 255);
 }
 
-/* Estilos específicos para light-plus */
-.light-plus .bg-white {
-  background-color: rgb(var(--light-plus-bg));
-}
-
-.light-plus .text-black {
-  color: rgb(var(--light-plus-text));
-}
-
-.light-plus .border-zinc-200 {
-  border-color: rgb(var(--light-plus-border));
-}
-
-.light-plus .hover\:bg-zinc-200:hover {
-  background-color: rgb(var(--light-plus-border));
-}
 
 /* Transiciones */
 .transition-colors {
