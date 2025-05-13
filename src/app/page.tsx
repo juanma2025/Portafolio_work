@@ -10,14 +10,14 @@ export default function Home() {
           <p className="text-red-600 font-medium">HELLO, MY NAME IS</p>
           <h1 className="text-4xl md:text-6xl font-bold">JUAN MANUEL</h1>
           <p className="text-zinc-300 text-lg">
-            a passionate and dedicated junior web developer, with experience in front end and frameworks.
+            Apassionate and dedicated junior web developer, with experience in front end and frameworks.
           </p>
           <Link href="/contact">
             <Button className="bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2">CONTACT ME</Button>
           </Link>
         </section>
 
-        <figure className="w-full md:w-1/2 flex justify-center md:justify-end">
+        <figure className="w-full md:w-1/2 flex justify-end md:justify-center">
           <span className="border-4 border-red-600 p-1">
             <Image
               src="/profile-image.jpg"
