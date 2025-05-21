@@ -62,49 +62,52 @@ export default function Navbar() {
     return (
     <header className="bg-white dark:bg-black text-black dark:text-white py-4 px-6 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <section className="max-w-screen-xl mx-auto flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
-            <span className="bg-red-600 p-2">
-              <span className="text-white">&lt;/&gt;</span>
-            </span>
-            <span className="text-xl font-bold">Portfolio Desing</span>
-        </Link>
+            <Link href="/" className="flex items-center gap-2">
+                <span className="bg-red-600 p-2">
+                    <span className="text-white">&lt;/&gt;</span>
+                </span>
+                <span className="text-xl font-bold">Juan Desing</span>
+            </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-2">
-            {navItems.map((item) => (
-            <span key={item.href}>{item.render()}</span>
-            ))}
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-2">
+                {navItems.map((item) => (
+                    <span key={item.href}>{item.render()}</span>
+                ))}
 
-          {/* Theme Toggle Button */}
-            <button
-            onClick={toggleTheme}
-            className="ml-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
-            aria-label={getAriaLabel()}
-            >
-            {getThemeIcon()}
-            </button>
-        </nav>
+                {/* Theme Toggle Button */}
+                <button
+                    onClick={toggleTheme}
+                    className="ml-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                    aria-label={getAriaLabel()}
+                >
+                    {getThemeIcon()}
+                </button>
+            </nav>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="md:hidden flex items-center">
-          {/* Theme Toggle Button on mobile */}
-            <button
-            onClick={toggleTheme}
-            className="mr-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
-            aria-label={getAriaLabel()}
-            >
-            {getThemeIcon()}
-            </button>
+            {/* Mobile Navigation Toggle */}
+            <div className="flex md:hidden items-center">
+                {/* Theme Toggle Button on mobile */}
+                <button
+                    onClick={toggleTheme}
+                    className="mr-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                    aria-label={getAriaLabel()}
+                >
+                    {getThemeIcon()}
+                </button>
 
-            <button className="text-black dark:text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-        </div>
+                <button
+                    className="text-black dark:text-white"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+            </div>
         </section>
 
        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-        <nav className="md:hidden absolute top-16 left-0 right-0 bg-white dark:bg-black z-50 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
+        <nav className="absolute top-16 left-0 right-0 bg-white dark:bg-black z-50 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
             <section className="max-w-screen-xl mx-auto py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
                 <Link

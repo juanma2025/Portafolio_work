@@ -8,7 +8,7 @@ export default function Home() {
       <article className="flex flex-col md:flex-row items-center justify-between gap-8">
         <section className="w-full md:w-1/2 space-y-6">
           <p className="text-red-600 font-medium">HELLO, MY NAME IS</p>
-          <h1 className="text-4xl md:text-6xl font-bold">JUAN MANUEL</h1>
+          <h1 className="text-4xl md:text-4xl font-bold">JUAN MANUEL</h1>
           <p className="text-zinc-300 text-lg">
             Apassionate and dedicated junior web developer, with experience in front end and frameworks.
           </p>
