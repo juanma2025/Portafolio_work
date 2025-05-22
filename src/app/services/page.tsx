@@ -14,10 +14,10 @@ class Service {
 
     render() {
         return (
-            <span className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 hover:border-red-600 transition-colors" >
-                <section className="text-red-600 mb-4 flex-1">{this.icon}</section>
-                <h3 className="text-xl font-bold mb-2 flex-1 ">{this.title}</h3>
-                <p className="text-zinc-300 flex-1 ">{this.description}</p>
+            <span className="bg-zinc-900 hover:border-red-600 transition-colors" >
+                <section className="text-red-600 mb-4 ">{this.icon}</section>
+                <h3 className="text-xl font-bold mb-2  ">{this.title}</h3>
+                <p className="text-zinc-300 ">{this.description}</p>
             </span>
         )
     }
