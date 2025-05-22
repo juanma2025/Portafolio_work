@@ -7,8 +7,8 @@ export default function AboutPage() {
     <section className="max-w-screen-xl mx-auto px-4 py-12">
         <article className="flex flex-col md:flex-row gap-8">
         <figure className="w-full md:w-1/3 flex justify-center">
-            <span className="border-4 border-red-600 p-1 max-w-[350px]">
-            <Image src="/profile-image.jpg" alt="Juan Manuel" width={400} height={201} className="object-cover" />
+            <span className="border-4 border-red-600 p-4 max-w-[600px]">
+            <Image src="/profile-image.jpg" alt="Juan Manuel" width={400} height={400} className="object-cover" />
             </span>
         </figure>
 
@@ -48,6 +48,7 @@ export default function AboutPage() {
             <SkillBadge icon="react" name="React" />
             <SkillBadge icon="figma" name="Figma" />
             <SkillBadge icon="figma" name="Tailwind" />
+            <SkillBadge icon="python" name="python" />
             </section>
 
             <Button className="bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2 mt-6">Download CV</Button>

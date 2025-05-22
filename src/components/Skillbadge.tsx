@@ -24,6 +24,10 @@ interface SkillBadgeProps {
             return <span className="text-blue-400">R</span>
         case "figma":
             return <span className="text-purple-500">F</span>
+        case "tailwind":
+            return <span className="text-sky-400">T</span>
+        case "python":
+            return <span className="text-yellow-500">P</span>
         default:
             return <span>?</span>
         }
