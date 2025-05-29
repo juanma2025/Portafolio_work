@@ -22,7 +22,7 @@ export default function AboutPage() {
 
             <section className="space-y-4 text-zinc-300">
             <p>
-                Hi! I'm a passionate junior web developer with a strong motivation for creating modern, functional and
+                Hi! Im a passionate junior web developer with a strong motivation for creating modern, functional and
                 aesthetically appealing digital experiences. I specialize in frontend development using frameworks like
                 Next.js and React, and I complement my interfaces with Tailwind CSS, HTML, CSS and JavaScript, always
                 applying clean code and good development practices.

@@ -8,7 +8,7 @@ export default function ContactPage() {
             <span className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <section className="space-y-4">
                     <p className="text-zinc-300">
-                    Feel free to contact me for any questions or opportunities. I'll get back to you as soon as possible.
+                    Feel free to contact me for any questions or opportunities. I ll get back to you as soon as possible.
                     </p>
 
                     <div className="space-y-2">
