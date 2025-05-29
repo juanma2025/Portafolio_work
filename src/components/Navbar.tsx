@@ -70,7 +70,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="overflow-hidden  md:flex items-center space-x-2">
+            <nav className=" md:flex items-center space-x-2">
                 {navItems.map((item) => (
                     <span key={item.href}>{item.render()}</span>
                 ))}
