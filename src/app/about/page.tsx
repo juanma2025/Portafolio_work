@@ -8,7 +8,7 @@ export default function AboutPage() {
         <article className="flex flex-col md:flex-row gap-8">
         <figure className="w-full md:w-1/3 flex justify-center">
             <span className="border-4 border-red-600 p-4 max-w-[600px]">
-            <Image src="/profile-image.jpg" alt="Juan Manuel" width={400} height={400} className="object-cover" />
+            <Image src="/image.jpg" alt="Juan Manuel" width={400} height={400} className="object-cover" />
             </span>
         </figure>
 

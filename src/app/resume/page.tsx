@@ -14,7 +14,7 @@ export default function ResumePage() {
             <section className="flex flex-col items-center text-center">
             <figure className="rounded-full border-4 border-red-600 p-1 w-40 h-40 overflow-hidden mb-4">
                 <Image
-                src="/profile-image.jpg"
+                src="/image.jpg"
                 alt="Juan Manuel"
                 width={160}
                 height={160}
