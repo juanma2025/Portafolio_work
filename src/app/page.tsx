@@ -12,9 +12,9 @@ export default function Home() {
           <p className="text-zinc-300 text-lg">
             Apassionate and dedicated junior web developer, with experience in front end and frameworks.
           </p>
-          <Link href="/contact" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 disabled:pointer-events-none disabled:opacity-50 h-10 bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2">
+          <a href="/contact" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 disabled:pointer-events-none disabled:opacity-50 h-10 bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2">
             CONTACT
-          </Link>
+          </a>
 
           <div className="flex items-center space-x-4 pt-4">
               <Link
