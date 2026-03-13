@@ -44,7 +44,7 @@ export default function Home() {
         <figure className="w-full md:w-1/2 flex justify-end md:justify-center">
           <span className="border-4 border-red-600 p-1">
             <Image
-              src="/profile-image.jpg"
+              src="/image.JPG"
               alt="Juan Manuel"
               width={400}
               height={400}
