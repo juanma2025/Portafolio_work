@@ -41,30 +41,30 @@ export default function ContactPage() {
                     </section>
 
                     <section className="space-y-2">
-                        <label htmlFor="name" className="block">
+                        <label htmlFor="email" className="block">
                             Email
                         </label>
                         <input 
-                        type="text"
-                        id="name"
+                        type="email"
+                        id="email"
                         className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
                         required>
                         </input>
                     </section>
 
                     <section className="space-y-2">
-                        <label htmlFor="name" className="block">
+                        <label htmlFor="message" className="block">
                             Message
                         </label>
                         <textarea 
-                        id="Message"
+                        id="message"
                         rows={5}
                         className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
                         required>
                         </textarea>
                     </section>
 
-                    <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-2">Send Message</Button>
+                    <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-8 py-2">Send Message</Button>
                 </form>
             </span>
         </section>

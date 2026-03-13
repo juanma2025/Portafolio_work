@@ -1,5 +1,6 @@
 import type React from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 
 class SocialIcon {
@@ -30,27 +31,33 @@ export default function Footer() {
   const socialIcons = [
     new SocialIcon(
       "Instagram",
-      <img
+      <Image
         src="/icons/icons8-instagram-50.png"
         alt="Instagram"
+        width={24}
+        height={24}
         className="w-6 h-6"
       />,
       "https://instagram.com"
     ),
     new SocialIcon(
       "Facebook",
-      <img
+      <Image
         src="/icons/icons8-facebook-nuevo-50.png"
         alt="Facebook"
+        width={24}
+        height={24}
         className="w-6 h-6"
       />,
       "https://facebook.com"
     ),
     new SocialIcon(
       "LinkedIn",
-      <img
+      <Image
         src="/icons/icons8-linkedin-50.png"
         alt="LinkedIn"
+        width={24}
+        height={24}
         className="w-6 h-6"
       />,
       "https://linkedin.com"

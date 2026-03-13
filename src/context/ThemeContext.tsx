@@ -90,6 +90,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         // Set initial theme
         const initialTheme = savedTheme || (prefersDark ? THEME_DARK : THEME_LIGHT)
         themeManager.setTheme(initialTheme)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Context value
