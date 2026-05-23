@@ -78,8 +78,9 @@ export default function ResumePage() {
 
           <section className="resume-bio resume-card">
             <p>
-              My name is <strong>Juan Manuel</strong>, frontend developer and QA tester focused on building clean,
-              responsive and usable digital products with a strong visual identity.
+              Mi Nombre es <strong>Juan Manuel</strong>, Desarrollador y Tester de control de calidad de rontend enfocado en crear productos digitales limpios,
+
+adaptables y fáciles de usar con una fuerte identidad visual.
             </p>
           </section>
         </section>
