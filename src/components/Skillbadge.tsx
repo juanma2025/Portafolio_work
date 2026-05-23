@@ -11,32 +11,38 @@ interface SkillBadgeProps {
     ) {}
     
     getIconComponent() {
+        const iconClassName = `skill-badge__icon skill-badge__icon--${this.icon.toLowerCase()}`
+
         switch (this.icon.toLowerCase()) {
         case "html":
-            return <span className="text-orange-500">H</span>
+            return <span className={iconClassName}>H</span>
         case "css":
-            return <span className="text-blue-500">C</span>
+            return <span className={iconClassName}>C</span>
+        case "javascript":
+            return <span className={iconClassName}>JS</span>
         case "typescript":
-            return <span className="text-blue-600">TS</span>
+            return <span className={iconClassName}>TS</span>
         case "nextjs":
-            return <span className="text-white">N</span>
+            return <span className={iconClassName}>N</span>
+        case "vite":
+            return <span className={iconClassName}>V</span>
         case "react":
-            return <span className="text-blue-400">R</span>
+            return <span className={iconClassName}>R</span>
         case "figma":
-            return <span className="text-purple-500">F</span>
+            return <span className={iconClassName}>F</span>
         case "tailwind":
-            return <span className="text-sky-400">T</span>
+            return <span className={iconClassName}>T</span>
         case "python":
-            return <span className="text-yellow-500">P</span>
+            return <span className={iconClassName}>P</span>
         default:
-            return <span>?</span>
+            return <span className="skill-badge__icon">?</span>
         }
     }
     
     render() {
         return (
-        <article className="flex items-center gap-2 bg-zinc-800 rounded px-4 py-2">
-            <span className="w-6 h-6 flex items-center justify-center">{this.getIconComponent()}</span>
+        <article className="skill-badge">
+            {this.getIconComponent()}
             <span>{this.name}</span>
         </article>
         )

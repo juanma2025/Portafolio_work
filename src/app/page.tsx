@@ -9,11 +9,11 @@ export default function Home() {
         <section className="home-hero__copy">
           <p className="home-hero__eyebrow">JUAN MANUEL</p>
           <h1 className="home-hero__title">
-            HAY! I'M JUAN
+            HI! I'M JUAN
             <span>I'M A DESIGNER</span>
           </h1>
           <p className="home-hero__description">
-            A passionate junior web developer focused on modern front-end interfaces, responsive layouts, and clean digital experiences.
+            Desarrollador web junior apasionado, especializado en interfaces front-end modernas, diseños responsivos y experiencias digitales impecables.
           </p>
           <div className="home-hero__actions">
             <Link href="/contact" className="home-hero__button">

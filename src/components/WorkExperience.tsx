@@ -1,13 +1,13 @@
 interface WorkExperienceItemProps {
     title: string
-    company: string
+    description: string
     }
     
   // Clase para representar un elemento de experiencia laboral
     class WorkExperienceItemRenderer {
     constructor(
         private title: string,
-        private company: string,
+        private description: string,
     ) {}
     
     render() {
@@ -17,7 +17,7 @@ interface WorkExperienceItemProps {
             <span className="min-w-2 mr-2">•</span>
             <section>
                 <h3 className="font-medium">{this.title}</h3>
-                <p className="text-zinc-500">{this.company}</p>
+                <p className="text-zinc-500">{this.description}</p>
             </section>
             </section>
         </article>
@@ -25,7 +25,7 @@ interface WorkExperienceItemProps {
     }
     }
     
-    export function WorkExperienceItem({ title, company }: WorkExperienceItemProps) {
-    const item = new WorkExperienceItemRenderer(title, company)
+    export function WorkExperienceItem({ title, description }: WorkExperienceItemProps) {
+    const item = new WorkExperienceItemRenderer(title, description)
     return item.render()
     }

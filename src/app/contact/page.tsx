@@ -64,7 +64,7 @@ export default function ContactPage() {
                         </textarea>
                     </section>
 
-                    <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-8 py-2">Send Message</Button>
+                    <Button type="submit" className="bg-blue-500 hover:bg-red-600 text-white px-8 py-2">Send Message</Button>
                 </form>
             </span>
         </section>

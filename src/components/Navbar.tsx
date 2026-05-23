@@ -5,31 +5,14 @@ const THEME_DARK = "dark"
 
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X, Sun, Moon } from "lucide-react"
 import { useTheme } from "@/context/ThemeContext"
-
-class NavItem {
-    constructor(
-    public label: string,
-    public href: string,
-    public active = false,
-    ) {}
-
-    render() {
-    return (
-        <Link
-        href={this.href}
-        className={`px-4 py-2 hover:text-red-500 transition-colors ${this.active ? "font-bold" : ""}`}
-        >
-        {this.label}
-        </Link>
-    )
-    }
-}
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { theme, setTheme } = useTheme()
+    const pathname = usePathname()
 
   // Function to toggle between light and dark themes
     const toggleTheme = () => {
@@ -50,18 +33,17 @@ export default function Navbar() {
     return theme === THEME_DARK ? "Switch to Light Mode" : "Switch to Dark Mode"
     }
 
-  // Create NavItem instances using object-oriented programming
     const navItems = [
-    new NavItem("HOME", "/"),
-    new NavItem("ABOUT MY", "/about"),
-    new NavItem("RESUME", "/resume"),
-    new NavItem("MY SERVICES", "/services"),
-    new NavItem("CONTACT ME", "/contact"),
+    { label: "HOME", href: "/" },
+    { label: "ABOUT MY", href: "/about" },
+    { label: "RESUME", href: "/resume" },
+    { label: "MY SERVICES", href: "/services" },
+    { label: "CONTACT ME", href: "/contact" },
     ]
 
     return (
-    <header className="bg-white dark:bg-black text-black dark:text-white py-4 px-6 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
-        <section className="max-w-screen-xl mx-auto flex justify-between items-center">
+    <header className="site-header">
+        <section className="site-header__inner">
             <Link href="/" className="flex items-center gap-2 brand-link">
                 <span className="bg-red-600 p-2 brand-mark">
                     <span className="text-white">&lt;/&gt;</span>
@@ -70,15 +52,21 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-2 desktop-nav">
+            <nav className="desktop-nav" aria-label="Main menu">
                 {navItems.map((item) => (
-                    <span key={item.href}>{item.render()}</span>
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`nav-link ${pathname === item.href ? "nav-link--active" : ""}`}
+                    >
+                        {item.label}
+                    </Link>
                 ))}
 
                 {/* Theme Toggle Button */}
                 <button
                     onClick={toggleTheme}
-                    className="ml-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                    className="theme-toggle"
                     aria-label={getAriaLabel()}
                 >
                     {getThemeIcon()}
@@ -90,15 +78,17 @@ export default function Navbar() {
                 {/* Theme Toggle Button on mobile */}
                 <button
                     onClick={toggleTheme}
-                    className="mr-4 p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                    className="theme-toggle mobile-theme-toggle"
                     aria-label={getAriaLabel()}
                 >
                     {getThemeIcon()}
                 </button>
 
                 <button
-                    className="text-black dark:text-white"
+                    className="mobile-menu-button"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label="Toggle menu"
+                    aria-expanded={isMenuOpen}
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -107,13 +97,13 @@ export default function Navbar() {
 
        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-        <nav className="absolute top-16 left-0 right-0 bg-white dark:bg-black z-50 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
-            <section className="max-w-screen-xl mx-auto py-4 flex flex-col space-y-4">
+        <nav className="mobile-nav" aria-label="Mobile menu">
+            <section className="mobile-nav__inner">
             {navItems.map((item) => (
                 <Link
                 key={item.href}
                 href={item.href}
-                className="px-6 py-2 hover:text-red-500 transition-colors"
+                className={`mobile-nav__link ${pathname === item.href ? "mobile-nav__link--active" : ""}`}
                 onClick={() => setIsMenuOpen(false)}
                 >
                 {item.label}

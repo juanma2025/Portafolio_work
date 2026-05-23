@@ -1,123 +1,167 @@
 import Image from "next/image"
-import { ResumeSection } from "@/components/ResumeSection"
-import { EducationItem} from "@/components/EducationItem"
-import { WorkExperienceItem } from "@/components/WorkExperience"
+import {
+  BrainCircuit,
+  BriefcaseBusiness,
+  Code2,
+  GraduationCap,
+  Github,
+  Mail,
+  MapPin,
+  Palette,
+  Phone,
+  Puzzle,
+  ShieldCheck,
+  Sparkles,
+  Users,
+  Wrench,
+} from "lucide-react"
+
+const projects = [
+  {
+    title: "Crud Citas Medicas",
+    meta: "Frontend",
+    date: "2025",
+    items: [
+      "Diseno web para una plataforma de gestion de citas medicas.",
+      "Interfaces responsivas enfocadas en claridad y flujo de usuario.",
+      "Organizacion visual de formularios, estados y datos principales.",
+    ],
+  },
+  {
+    title: "Portafolio",
+    meta: "Personal brand",
+    date: "2026",
+    items: [
+      "Portafolio personal para mostrar habilidades y proyectos.",
+      "Implementacion de dark mode, responsive design y componentes reutilizables.",
+      "Mejora progresiva de UI con una paleta consistente.",
+    ],
+  },
+  {
+    title: "Narino Cultura",
+    meta: "Proyecto de grado",
+    date: "Actual",
+    items: [
+      "Desarrollo frontend para una experiencia digital cultural.",
+      "Estructura visual para contenido, navegacion y exploracion.",
+      "Trabajo con buenas practicas de componentes y mantenibilidad.",
+    ],
+  },
+]
+
+const education = [
+  { title: "Ingenieria de Software", date: "8vo semestre", place: "En curso" },
+  { title: "Python Level 2 Bootcamp", date: "2023", place: "Bootcamp" },
+  { title: "Cisco Networking Academy", date: "2026", place: "Certificacion" },
+  { title: "Colegio San Nicolas", date: "2022", place: "Bachiller" },
+]
+
+const skills = [
+  { name: "Diseno web UI - UX", icon: Palette },
+  { name: "Desarrollador Frontend", icon: Code2 },
+  { name: "Trabajo en equipo", icon: Users },
+  { name: "Tester QA", icon: ShieldCheck },
+  { name: "Frameworks UI - UX", icon: Puzzle },
+  { name: "Herramientas de Testing", icon: Wrench },
+  { name: "JavaScript", icon: Sparkles },
+  { name: "AI Inteligencia Artificial", icon: BrainCircuit },
+]
 
 export default function ResumePage() {
-    return (
-    <section className="max-w-screen-xl mx-auto px-4 py-12">
-        <h1 className="text-2xl font-bold bg-red-600 inline-block px-4 py-1 mb-8">Resume</h1>
+  return (
+    <section className="resume-page">
+      <article className="resume-shell">
+        <section className="resume-intro">
+          <figure className="resume-avatar">
+            <Image src="/image3.png" alt="Juan Manuel" width={260} height={260} className="resume-avatar__image" priority />
+          </figure>
 
-        <article className="grid grid-cols-1 md:grid-cols-12 gap-8">
-        {/* Left sidebar */}
-        <aside className="md:col-span-3 bg-zinc-900 p-6 space-y-8">
-            <section className="flex flex-col items-center text-center">
-            <figure className="rounded-full border-4 border-red-600 p-1 w-40 h-40 overflow-hidden mb-4">
-                <Image
-                src="/image.JPG"
-                alt="Juan Manuel"
-                width={160}
-                height={160}
-                className="rounded-full object-cover"
-                />
-            </figure>
-            <h2 className="text-2xl font-bold">Juan Manuel</h2>
-            <p className="text-zinc-400">Frontend Developer</p>
-            </section>
-
-            <section className="space-y-6">
-            <article>
-                <h3 className="text-zinc-400 uppercase text-sm mb-2">E-MAIL</h3>
-                <p>juanmatabanchoyc@gmail.com</p>
-            </article>
-
-            <article>
-                <h3 className="text-zinc-400 uppercase text-sm mb-2">PHONE</h3>
-                <p>+57 3024993023</p>
-            </article>
-
-            <article>
-                <h3 className="text-zinc-400 uppercase text-sm mb-2">ADDRESS</h3>
-                <p>Torres de fatima apto 1503 torre 1</p>
-            </article>
-            </section>
-        </aside>
-
-        {/* Main content */}
-        <section className="md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <section className="space-y-8">
-            <ResumeSection
-                icon="profile"
-                title="Profile"
-                content="A highly motivated and detail-oriented junior front-end developer with a passion for creating innovative and visually appealing web applications. Proficient in HTML, CSS, JavaScript, and React, with experience in developing responsive and user-friendly websites. Strong problem-solving skills and a desire to learn and grow in a dynamic and fast-paced environment. A collaborative team player with good communication skills and a commitment to delivering high-quality work."
-            />
-
-            <ResumeSection
-                icon="education"
-                title="Education"
-                content={
-                <>
-                    <EducationItem title="Python Level 2 Bootcamp" date="06/10/2023 - 06/30/2023" />
-                    <EducationItem title="Software Engineering" date="Currently in 5th semester" />
-                    <EducationItem title="Frontend Development Course, Platzi" date="10/12/2022 - 11/15/2022" />
-                </>
-                }
-            />
-
-            <ResumeSection
-                icon="work"
-                title="Work Experience"
-                content={<WorkExperienceItem title="Web Development Assistant" company="San Nicolás School - Pasto" />}
-            />
-            </section>
-
-            <section className="space-y-8">
-            <ResumeSection
-                icon="languages"
-                title="Languages"
-                content={
-                <section className="space-y-2">
-                    <p>Spanish – Native</p>
-                    <p>English – B1</p>
-                </section>
-                }
-            />
-
-            <ResumeSection
-                icon="soft-skills"
-                title="Soft Skills"
-                content={
-                <ul className="list-disc pl-5 space-y-1">
-                    <li>Effective communication</li>
-                    <li>Attention to detail</li>
-                    <li>Teamwork</li>
-                    <li>Problem-solving</li>
-                    <li>Adaptability</li>
-                </ul>
-                }
-            />
-
-            <ResumeSection
-                icon="technical"
-                title="Technical Skills"
-                content={
-                <ul className="list-disc pl-5 space-y-1">
-                <li>CSS preprocessors</li>
-                    <li>Web development frameworks (React, Next.js,vite)</li>
-                    <li>Technical problem-solving</li>
-                    <li>Adaptability to new technologies</li>
-                </ul>
-                }
-            />
-
-            <ResumeSection
-                icon="github"
-                title="Git Hub"
-                content={<p className="break-words">https://github.com/juanma2025/Portafolio_work.git</p>}
-            />
-            </section>
+          <section className="resume-bio resume-card">
+            <p>
+              My name is <strong>Juan Manuel</strong>, frontend developer and QA tester focused on building clean,
+              responsive and usable digital products with a strong visual identity.
+            </p>
+          </section>
         </section>
-        </article>
+
+        <section className="resume-strip resume-card" aria-label="Interests">
+          <span>Interests</span>
+          <p>Web Design</p>
+          <p>UI - UX</p>
+          <p>Frontend</p>
+          <p>Testing QA</p>
+        </section>
+
+        <section className="resume-grid">
+          {projects.map((project) => (
+            <article className="resume-card resume-project" key={project.title}>
+              <header className="resume-card__header">
+                <section>
+                  <h2>{project.title}</h2>
+                  <p>{project.meta}</p>
+                </section>
+                <span>{project.date}</span>
+              </header>
+              <ul>
+                {project.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+
+          <article className="resume-card resume-education">
+            <header className="resume-section-title">
+              <GraduationCap size={19} />
+              <h2>Education</h2>
+            </header>
+            {education.map((item) => (
+              <section className="resume-education__item" key={item.title}>
+                <section>
+                  <h3>{item.title}</h3>
+                  <p>{item.place}</p>
+                </section>
+                <span>{item.date}</span>
+              </section>
+            ))}
+          </article>
+        </section>
+
+        <section className="resume-card resume-skills">
+          <header className="resume-section-title">
+            <BriefcaseBusiness size={19} />
+            <h2>Skills</h2>
+          </header>
+          <section className="resume-skill-list">
+            {skills.map(({ name, icon: Icon }) => (
+              <article className="resume-skill" key={name}>
+                <Icon size={17} />
+                <span>{name}</span>
+              </article>
+            ))}
+          </section>
+        </section>
+
+        <section className="resume-card resume-details">
+          <span>Details</span>
+          <p>
+            <Mail size={15} />
+            juanmatabanchoyc@gmail.com
+          </p>
+          <p>
+            <Phone size={15} />
+            +57 3024993023
+          </p>
+          <p>
+            <MapPin size={15} />
+            Pasto, Colombia
+          </p>
+          <a href="https://github.com/juanma2025" target="_blank" rel="noreferrer">
+            <Github size={15} />
+            GitHub
+          </a>
+        </section>
+      </article>
     </section>
-    )
+  )
 }
