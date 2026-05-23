@@ -62,15 +62,15 @@ export default function Navbar() {
     return (
     <header className="bg-white dark:bg-black text-black dark:text-white py-4 px-6 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <section className="max-w-screen-xl mx-auto flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-2">
-                <span className="bg-red-600 p-2">
+            <Link href="/" className="flex items-center gap-2 brand-link">
+                <span className="bg-red-600 p-2 brand-mark">
                     <span className="text-white">&lt;/&gt;</span>
                 </span>
-                <span className="text-xl font-bold">Juan Desing</span>
+                <span className="text-xl font-bold brand-name">Juan Desing</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className=" md:flex items-center space-x-2">
+            <nav className="hidden md:flex items-center space-x-2 desktop-nav">
                 {navItems.map((item) => (
                     <span key={item.href}>{item.render()}</span>
                 ))}

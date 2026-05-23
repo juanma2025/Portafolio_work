@@ -1,12 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/context/ThemeContext"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Portfolio Desing | Juan Manuel",
@@ -20,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${inter.className} bg-white dark:bg-black text-black dark:text-white transition-colors duration-300`}
+      <body className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300"
       >
 
         <ThemeProvider>

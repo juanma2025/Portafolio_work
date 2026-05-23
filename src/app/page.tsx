@@ -4,51 +4,59 @@ import Link from "next/link"
 import { Facebook, Linkedin, Instagram } from "lucide-react"
 export default function Home() {
   return (
-    <section className="max-w-screen-xl mx-auto px-4 py-12 md:py-24">
-      <article className="flex flex-col md:flex-row items-center justify-between gap-8">
-        <section className="w-full md:w-1/2 space-y-6">
-          <p className="text-red-600 font-medium">HELLO, MY NAME IS</p>
-          <h1 className="text-4xl md:text-4xl font-bold">JUAN MANUEL</h1>
-          <p className="text-zinc-300 text-lg">
-            Apassionate and dedicated junior web developer, with experience in front end and frameworks.
+    <section className="home-hero">
+      <article className="home-hero__content">
+        <section className="home-hero__copy">
+          <p className="home-hero__eyebrow">JUAN MANUEL</p>
+          <h1 className="home-hero__title">
+            HAY! I'M JUAN
+            <span>I'M A DESIGNER</span>
+          </h1>
+          <p className="home-hero__description">
+            A passionate junior web developer focused on modern front-end interfaces, responsive layouts, and clean digital experiences.
           </p>
-          <a href="/contact" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 disabled:pointer-events-none disabled:opacity-50 h-10 bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-2">
-            CONTACT
-          </a>
+          <div className="home-hero__actions">
+            <Link href="/contact" className="home-hero__button">
+              GET IN TOUCH
+            </Link>
 
-          <div className="flex items-center space-x-4 pt-4">
+            <div className="home-hero__socials">
               <Link
                 href="https://instagram.com"
-                className="text-white hover:text-red-500 transition-colors"
+                className="home-hero__social"
                 aria-label="Instagram"
               >
-                <Instagram size={24} />
+                <Instagram size={16} />
               </Link>
               <Link
                 href="https://facebook.com"
-                className="text-white hover:text-red-500 transition-colors"
+                className="home-hero__social home-hero__social--pink"
                 aria-label="Facebook"
               >
-                <Facebook size={24} />
+                <Facebook size={16} />
               </Link>
               <Link
                 href="https://linkedin.com"
-                className="text-white hover:text-red-500 transition-colors"
+                className="home-hero__social home-hero__social--blue"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={24} />
+                <Linkedin size={16} />
               </Link>
             </div>
+          </div>
         </section>
 
-        <figure className="w-full md:w-1/2 flex justify-end md:justify-center">
-          <span className="border-4 border-red-600 p-1">
+        <figure className="home-hero__visual">
+          <span className="home-hero__rings" aria-hidden="true" />
+          <span className="home-hero__accent home-hero__accent--one" aria-hidden="true" />
+          <span className="home-hero__accent home-hero__accent--two" aria-hidden="true" />
+          <span className="home-hero__photo">
             <Image
               src="/image.JPG"
               alt="Juan Manuel"
-              width={400}
-              height={400}
-              className="object-cover"
+              width={520}
+              height={640}
+              className="home-hero__image"
               priority
             />
           </span>
