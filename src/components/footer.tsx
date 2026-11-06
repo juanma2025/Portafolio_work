@@ -18,6 +18,8 @@ class SocialIcon {
     return (
       <Link
         href={this.href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`footer-social footer-social--${this.name.toLowerCase()}`}
         aria-label={this.name}
       >
@@ -42,19 +44,22 @@ export default function Footer() {
     new SocialIcon(
       "LinkedIn",
       <Linkedin size={17} strokeWidth={2.4} />,
-      "https://linkedin.com"
+      "https://www.linkedin.com/in/juanmanuel0125"
     ),
   ]
 
   return (
     <footer className="site-footer">
-      <section className="site-footer__inner">
-        <nav className="site-footer__socials" aria-label="Social links">
+      <div className="site-footer__inner">
+        <p className="site-footer__copy">
+          © {new Date().getFullYear()} Juan Manuel. Todos los derechos reservados.
+        </p>
+        <nav className="site-footer__socials" aria-label="Enlaces de redes sociales">
           {socialIcons.map((icon) => (
             <span key={icon.name}>{icon.render()}</span>
           ))}
         </nav>
-      </section>
+      </div>
     </footer>
   )
 }

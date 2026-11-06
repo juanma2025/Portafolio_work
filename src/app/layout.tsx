@@ -6,8 +6,8 @@ import Footer from "@/components/footer"
 import { ThemeProvider } from "@/context/ThemeContext"
 
 export const metadata: Metadata = {
-  title: "Portfolio Desing | Juan Manuel",
-  description: "Portfolio personal de Juan Manuel, desarrollador web frontend",
+  title: "Portfolio Design | Juan Manuel",
+  description: "Portafolio personal de Juan Manuel, desarrollador web frontend y tester QA",
 }
 
 export default function RootLayout({
@@ -16,10 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="dark">
-      <body className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300"
-      >
-
+    <html lang="es" className="dark" suppressHydrationWarning>
+      <body className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
         <ThemeProvider>
           <Navbar />
           <main className="flex-grow">{children}</main>

@@ -6,23 +6,25 @@ export default function Home() {
   return (
     <section className="home-hero">
       <article className="home-hero__content">
-        <section className="home-hero__copy">
+        <div className="home-hero__copy">
           <p className="home-hero__eyebrow">JUAN MANUEL</p>
           <h1 className="home-hero__title">
-            HI! I'M JUAN
-            <span>I'M A DESIGNER</span>
+            ¡HOLA! SOY JUAN
+            <span>SOY DISEÑADOR</span>
           </h1>
           <p className="home-hero__description">
             Desarrollador web junior apasionado, especializado en interfaces front-end modernas, diseños responsivos y experiencias digitales impecables.
           </p>
           <div className="home-hero__actions">
             <Link href="/contact" className="home-hero__button">
-              GET IN TOUCH
+              CONTÁCTAME
             </Link>
 
             <div className="home-hero__socials">
               <Link
                 href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="home-hero__social"
                 aria-label="Instagram"
               >
@@ -30,13 +32,17 @@ export default function Home() {
               </Link>
               <Link
                 href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="home-hero__social home-hero__social--pink"
                 aria-label="Facebook"
               >
                 <Facebook size={16} />
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/juanmanuel0125"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="home-hero__social home-hero__social--blue"
                 aria-label="LinkedIn"
               >
@@ -44,7 +50,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </section>
+        </div>
 
         <figure className="home-hero__visual">
           <span className="home-hero__rings" aria-hidden="true" />

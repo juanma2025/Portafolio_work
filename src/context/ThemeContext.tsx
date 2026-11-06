@@ -19,7 +19,7 @@ type ThemeContextType = {
 
 // Create the context with a default value to avoid undefined checks
 const defaultContextValue: ThemeContextType = {
-    theme: THEME_LIGHT,
+    theme: THEME_DARK,
     toggleTheme: () => {},
     setTheme: () => {},
 }
@@ -69,18 +69,14 @@ class ThemeManager {
 
 // Theme provider component
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // State for current theme
-    const [theme, setTheme] = useState<ThemeType>(THEME_LIGHT)
-    const [mounted, setMounted] = useState(false)
+    // State for current theme (matches initial className="dark" in layout.tsx)
+    const [theme, setTheme] = useState<ThemeType>(THEME_DARK)
 
     // Create a ThemeManager instance
     const themeManager = new ThemeManager(theme, setTheme)
 
     // Effect to initialize theme - only runs on the client
     useEffect(() => {
-        setMounted(true)
-        
-        // These operations now only happen on the client side
         // Check for saved theme in localStorage
         const savedTheme = localStorage.getItem("theme") as ThemeType | null
 
@@ -98,12 +94,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         theme,
         toggleTheme: () => themeManager.toggleTheme(),
         setTheme: (newTheme: ThemeType) => themeManager.setTheme(newTheme),
-    }
-
-    // Prevent rendering until client-side hydration is complete
-    // This prevents hydration mismatch errors
-    if (!mounted) {
-        return <>{children}</>
     }
 
     return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>

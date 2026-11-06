@@ -1,72 +1,101 @@
-import {Button} from "@/components/ui/button"
+"use client"
+
+import type React from "react"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const whatsappNumber = "573024993023"
+        const text = `Hola Juan Manuel, mi nombre es ${name.trim()} (${email.trim()}).\n\n${message.trim()}`
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`
+
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+    }
+
     return (
-        <section className="max-w-screen-xl mx-auto px-4 py-12">
-            <h1 className="text-3xl md:text-4xl font-bold mb-8">Contact Me</h1>
+        <section className="contact-page max-w-screen-xl mx-auto px-4 py-12">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8">Contáctame</h1>
             
-            <span className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <section className="space-y-4">
-                    <p className="text-zinc-300">
-                    Feel free to contact me for any questions or opportunities. I ll get back to you as soon as possible.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                    <p className="contact-muted">
+                        No dudes en contactarme para cualquier consulta u oportunidad laboral. Te responderé lo antes posible.
                     </p>
 
                     <div className="space-y-2">
-                        <p className="font-medium">Email</p>
-                        <p className="text-zinc-300">juanmatabanchoyc@gmail.com</p>
+                        <p className="font-medium">Correo electrónico</p>
+                        <p className="contact-muted">juanmatabanchoyc@gmail.com</p>
                     </div>
 
                     <div className="space-y-2">
-                        <p className="font-medium">Phone</p>
-                        <p className="text-zinc-300">+57 3024993023</p>
+                        <p className="font-medium">Teléfono</p>
+                        <p className="contact-muted">+57 3024993023</p>
                     </div>
 
                     <div className="space-y-2">
-                        <p className="font-medium">Address</p>
-                        <p className="text-zinc-300">Torres de fatima apto 1503 torre 1</p>
+                        <p className="font-medium">Ubicación</p>
+                        <p className="contact-muted">Pasto, Colombia</p>
                     </div>
-                </section>
+                </div>
 
-                <form className="space-y-4">
-                    <section className="space-y-2">
-                        <label htmlFor="name" className="block">
-                            Name
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="space-y-2">
+                        <label htmlFor="name" className="block font-medium">
+                            Nombre
                         </label>
                         <input 
-                        type="text"
-                        id="name"
-                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
-                        required>
-                        </input>
-                    </section>
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="contact-input w-full p-2 rounded-md"
+                            required
+                        />
+                    </div>
 
-                    <section className="space-y-2">
-                        <label htmlFor="email" className="block">
-                            Email
+                    <div className="space-y-2">
+                        <label htmlFor="email" className="block font-medium">
+                            Correo electrónico
                         </label>
                         <input 
-                        type="email"
-                        id="email"
-                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
-                        required>
-                        </input>
-                    </section>
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="contact-input w-full p-2 rounded-md"
+                            required
+                        />
+                    </div>
 
-                    <section className="space-y-2">
-                        <label htmlFor="message" className="block">
-                            Message
+                    <div className="space-y-2">
+                        <label htmlFor="message" className="block font-medium">
+                            Mensaje
                         </label>
                         <textarea 
-                        id="message"
-                        rows={5}
-                        className="w-full p-2 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-red-600"
-                        required>
-                        </textarea>
-                    </section>
+                            id="message"
+                            name="message"
+                            rows={5}
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className="contact-input w-full p-2 rounded-md"
+                            required
+                        />
+                    </div>
 
-                    <Button type="submit" className="bg-blue-500 hover:bg-red-600 text-white px-8 py-2">Send Message</Button>
+                    <Button type="submit" className="bg-blue-500 hover:bg-red-600 text-white px-8 py-2">
+                        Enviar Mensaje
+                    </Button>
                 </form>
-            </span>
+            </div>
         </section>
     )
 }

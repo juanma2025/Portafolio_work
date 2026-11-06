@@ -27,54 +27,54 @@ export default function ServicesPage() {
   const services = [
     new Service(
       "Desarrollo Web",
-      "Creacion de sitios modernos, rapidos y responsivos usando tecnologias como React, Next.js, Vite y JavaScript.",
+      "Creación de sitios modernos, rápidos y responsivos usando tecnologías como React, Next.js, Vite y JavaScript.",
       <Code2 size={27} />,
     ),
     new Service(
-      "Diseno UI - UX",
-      "Diseno de interfaces claras, atractivas y faciles de usar, pensadas para mejorar la experiencia del usuario.",
+      "Diseño UI - UX",
+      "Diseño de interfaces claras, atractivas y fáciles de usar, pensadas para mejorar la experiencia del usuario.",
       <LayoutDashboard size={27} />,
     ),
     new Service(
       "Frontend Interactivo",
-      "Implementacion de componentes dinamicos, navegacion fluida, estados visuales y experiencias adaptadas al usuario.",
+      "Implementación de componentes dinámicos, navegación fluida, estados visuales y experiencias adaptadas al usuario.",
       <Palette size={27} />,
     ),
     new Service(
-      "Diseno Responsivo",
-      "Adaptacion de interfaces para escritorio, tablet y movil, cuidando legibilidad, espaciado y jerarquia visual.",
+      "Diseño Responsivo",
+      "Adaptación de interfaces para escritorio, tablet y móvil, cuidando legibilidad, espaciado y jerarquía visual.",
       <Globe2 size={27} />,
     ),
     new Service(
-      "Integracion de APIs",
-      "Conexion de aplicaciones con servicios externos, consumo de datos y preparacion de interfaces listas para escalar.",
+      "Integración de APIs",
+      "Conexión de aplicaciones con servicios externos, consumo de datos y preparación de interfaces listas para escalar.",
       <ServerCog size={27} />,
     ),
     new Service(
-      "Optimizacion y QA",
-      "Revision de rendimiento, pruebas funcionales, deteccion de errores y mejoras para una experiencia mas estable.",
+      "Optimización y QA",
+      "Revisión de rendimiento, pruebas funcionales, detección de errores y mejoras para una experiencia más estable.",
       <Gauge size={27} />,
     ),
   ]
 
   return (
     <section className="services-page">
-      <article className="services-shell">
+      <div className="services-shell">
         <header className="services-hero">
           <span>Servicios</span>
           <h1>Soluciones digitales para interfaces modernas</h1>
           <p>
-            Desarrollo experiencias web funcionales, responsivas y visualmente cuidadas, combinando frontend, diseno UI -
-            UX y buenas practicas de calidad.
+            Desarrollo experiencias web funcionales, responsivas y visualmente cuidadas, combinando frontend, diseño UI -
+            UX y buenas prácticas de calidad.
           </p>
         </header>
 
-        <section className="services-grid">
+        <div className="services-grid">
           {services.map((service) => (
             <div key={service.title}>{service.render()}</div>
           ))}
-        </section>
-      </article>
+        </div>
+      </div>
     </section>
   )
 }

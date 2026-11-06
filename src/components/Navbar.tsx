@@ -1,6 +1,5 @@
 "use client";
 
-const THEME_LIGHT = "light"
 const THEME_DARK = "dark"
 
 import { useState } from "react"
@@ -11,13 +10,8 @@ import { useTheme } from "@/context/ThemeContext"
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const { theme, setTheme } = useTheme()
+    const { theme, toggleTheme } = useTheme()
     const pathname = usePathname()
-
-  // Function to toggle between light and dark themes
-    const toggleTheme = () => {
-    setTheme(theme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT)
-    }
 
   // Function to get the appropriate icon based on current theme
     const getThemeIcon = () => {
@@ -30,29 +24,29 @@ export default function Navbar() {
 
   // Function to get the appropriate aria-label text
     const getAriaLabel = () => {
-    return theme === THEME_DARK ? "Switch to Light Mode" : "Switch to Dark Mode"
+    return theme === THEME_DARK ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
     }
 
     const navItems = [
-    { label: "HOME", href: "/" },
-    { label: "ABOUT MY", href: "/about" },
-    { label: "RESUME", href: "/resume" },
-    { label: "MY SERVICES", href: "/services" },
-    { label: "CONTACT ME", href: "/contact" },
+    { label: "INICIO", href: "/" },
+    { label: "SOBRE MÍ", href: "/about" },
+    { label: "CURRÍCULUM", href: "/resume" },
+    { label: "SERVICIOS", href: "/services" },
+    { label: "CONTACTO", href: "/contact" },
     ]
 
     return (
     <header className="site-header">
-        <section className="site-header__inner">
+        <div className="site-header__inner">
             <Link href="/" className="flex items-center gap-2 brand-link">
                 <span className="bg-red-600 p-2 brand-mark">
                     <span className="text-white">&lt;/&gt;</span>
                 </span>
-                <span className="text-xl font-bold brand-name">Juan Desing</span>
+                <span className="text-xl font-bold brand-name">Juan Design</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="desktop-nav" aria-label="Main menu">
+            <nav className="desktop-nav" aria-label="Menú principal">
                 {navItems.map((item) => (
                     <Link
                         key={item.href}
@@ -87,18 +81,18 @@ export default function Navbar() {
                 <button
                     className="mobile-menu-button"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle menu"
+                    aria-label="Alternar menú"
                     aria-expanded={isMenuOpen}
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
-        </section>
+        </div>
 
        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-        <nav className="mobile-nav" aria-label="Mobile menu">
-            <section className="mobile-nav__inner">
+        <nav className="mobile-nav" aria-label="Menú móvil">
+            <div className="mobile-nav__inner">
             {navItems.map((item) => (
                 <Link
                 key={item.href}
@@ -109,7 +103,7 @@ export default function Navbar() {
                 {item.label}
                 </Link>
             ))}
-            </section>
+            </div>
         </nav>
         )}
     </header>

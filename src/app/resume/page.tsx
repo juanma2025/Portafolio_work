@@ -5,6 +5,7 @@ import {
   Code2,
   GraduationCap,
   Github,
+  Linkedin,
   Mail,
   MapPin,
   Palette,
@@ -18,89 +19,100 @@ import {
 
 const projects = [
   {
-    title: "Crud Citas Medicas",
-    meta: "Frontend",
-    date: "2025",
+    title: "Corpocarnaval · Nariño Cultura",
+    meta: "Product Designer UI/UX y Frontend (Freelance) · Trabajo de grado",
+    date: "2025 – Actualidad",
     items: [
-      "Diseno web para una plataforma de gestion de citas medicas.",
-      "Interfaces responsivas enfocadas en claridad y flujo de usuario.",
-      "Organizacion visual de formularios, estados y datos principales.",
+      "Entrevisté a 7 usuarios y rediseñé por completo la UI/UX con un lenguaje visual centrado en la cultura nariñense.",
+      "Validé el nuevo diseño con pruebas de usabilidad con los mismos usuarios e iteré las pantallas según su feedback.",
+      "Colaboré con el cliente y el equipo en entregas iterativas (Scrum/Kanban) e implementé el frontend responsivo (React, Tailwind CSS).",
     ],
   },
   {
-    title: "Portafolio",
-    meta: "Personal brand",
-    date: "2026",
+    title: "Nova · Banca Digital (Fintech)",
+    meta: "Nova Neobank y Nova Plata · Figma, Stitch, React, Tailwind CSS",
+    date: "Proyecto personal",
     items: [
-      "Portafolio personal para mostrar habilidades y proyectos.",
-      "Implementacion de dark mode, responsive design y componentes reutilizables.",
-      "Mejora progresiva de UI con una paleta consistente.",
+      "Entrevisté a 5 estudiantes universitarios y rediseñé por completo la interfaz de ambos productos ante la baja aceptación inicial.",
+      "Diseñé las interfaces finales con un lenguaje visual minimalista y consistente, priorizando la claridad de la información financiera.",
+      "Validé el rediseño con pruebas de usabilidad y llevé los diseños a productos funcionales en React con apoyo de IA.",
     ],
   },
   {
-    title: "Narino Cultura",
-    meta: "Proyecto de grado",
-    date: "Actual",
+    title: "Parking Reserve (Movilidad urbana)",
+    meta: "App móvil de reserva de parqueaderos en Pasto · Figma, Flutter",
+    date: "Proyecto personal",
     items: [
-      "Desarrollo frontend para una experiencia digital cultural.",
-      "Estructura visual para contenido, navegacion y exploracion.",
-      "Trabajo con buenas practicas de componentes y mantenibilidad.",
+      "Entrevisté a 10 usuarios y detecté que la vista principal generaba ruido visual por exceso de texto.",
+      "Rediseñé la vista principal y pantallas secundarias con enfoque mobile-first: menos texto, jerarquía visual clara y acciones más visibles.",
+      "Validé los cambios con pruebas de usabilidad, iteré según el feedback y desarrollé y desplegué la app en Flutter.",
     ],
   },
 ]
 
 const education = [
-  { title: "Ingenieria de Software", date: "8vo semestre", place: "En curso" },
-  { title: "Python Level 2 Bootcamp", date: "2023", place: "Bootcamp" },
-  { title: "Cisco Networking Academy", date: "2026", place: "Certificacion" },
-  { title: "Colegio San Nicolas", date: "2022", place: "Bachiller" },
+  {
+    title: "Ingeniería de Software",
+    date: "2023 – Actualidad",
+    place: "Universidad Cooperativa de Colombia (8.º semestre)",
+  },
+  {
+    title: "Tester QA Junior (capacitación)",
+    date: "Formación",
+    place: "Diseño de casos de prueba, validación funcional y reporte de errores",
+  },
+  {
+    title: "Idiomas",
+    date: "B1 / Nativo",
+    place: "Español: nativo · Inglés: B1 (intermedio)",
+  },
 ]
 
 const skills = [
-  { name: "Diseno web UI - UX", icon: Palette },
-  { name: "Desarrollador Frontend", icon: Code2 },
-  { name: "Trabajo en equipo", icon: Users },
-  { name: "Tester QA", icon: ShieldCheck },
-  { name: "Frameworks UI - UX", icon: Puzzle },
-  { name: "Herramientas de Testing", icon: Wrench },
-  { name: "JavaScript", icon: Sparkles },
-  { name: "AI Inteligencia Artificial", icon: BrainCircuit },
+  { name: "Diseño de Producto (UI/UX)", icon: Palette },
+  { name: "Investigación y Pruebas con Usuarios", icon: Users },
+  { name: "User Flows, Wireframes y Prototipado", icon: Puzzle },
+  { name: "Figma, Stitch y Miro", icon: Wrench },
+  { name: "React, Tailwind CSS y TypeScript", icon: Code2 },
+  { name: "Desarrollo Mobile-First y Flutter", icon: Sparkles },
+  { name: "Testing y Control de Calidad (QA)", icon: ShieldCheck },
+  { name: "Scrum, Kanban y Herramientas de IA", icon: BrainCircuit },
 ]
 
 export default function ResumePage() {
   return (
     <section className="resume-page">
-      <article className="resume-shell">
-        <section className="resume-intro">
+      <div className="resume-shell">
+        <h1 className="sr-only">Currículum de Juan Manuel Cabrera</h1>
+        <div className="resume-intro">
           <figure className="resume-avatar">
-            <Image src="/image3.png" alt="Juan Manuel" width={260} height={260} className="resume-avatar__image" priority />
+            <Image src="/image3.png" alt="Juan Manuel Cabrera" width={260} height={260} className="resume-avatar__image" priority />
           </figure>
 
-          <section className="resume-bio resume-card">
+          <div className="resume-bio resume-card">
             <p>
-              Mi Nombre es <strong>Juan Manuel</strong>, Desarrollador y Tester de control de calidad de rontend enfocado en crear productos digitales limpios,
-
-adaptables y fáciles de usar con una fuerte identidad visual.
+              Soy <strong>Juan Manuel Cabrera</strong>, Product Designer con formación en Ingeniería de Software (8.º semestre). Diseño productos digitales de principio a fin, desde la investigación con usuarios y las pruebas de usabilidad hasta los flujos, la UI y la implementación en fintech, movilidad urbana y cultura. He entrevistado y hecho pruebas con 22 usuarios en 3 productos, rediseñando interfaces completas y colaborando de cerca con ingeniería bajo metodologías ágiles (Scrum/Kanban).
             </p>
-          </section>
+          </div>
+        </div>
+
+        <section className="resume-strip resume-card" aria-label="Intereses">
+          <span>Intereses</span>
+          <p>Product Design</p>
+          <p>UI / UX</p>
+          <p>Investigación de Usuarios</p>
+          <p>Fintech y Movilidad</p>
+          <p>Música (Banda en vivo)</p>
         </section>
 
-        <section className="resume-strip resume-card" aria-label="Interests">
-          <span>Interests</span>
-          <p>Web Design</p>
-          <p>UI - UX</p>
-          <p>Frontend</p>
-          <p>Testing QA</p>
-        </section>
-
-        <section className="resume-grid">
+        <div className="resume-grid">
           {projects.map((project) => (
             <article className="resume-card resume-project" key={project.title}>
               <header className="resume-card__header">
-                <section>
+                <div>
                   <h2>{project.title}</h2>
                   <p>{project.meta}</p>
-                </section>
+                </div>
                 <span>{project.date}</span>
               </header>
               <ul>
@@ -114,55 +126,59 @@ adaptables y fáciles de usar con una fuerte identidad visual.
           <article className="resume-card resume-education">
             <header className="resume-section-title">
               <GraduationCap size={19} />
-              <h2>Education</h2>
+              <h2>Formación</h2>
             </header>
             {education.map((item) => (
-              <section className="resume-education__item" key={item.title}>
-                <section>
+              <div className="resume-education__item" key={item.title}>
+                <div>
                   <h3>{item.title}</h3>
                   <p>{item.place}</p>
-                </section>
+                </div>
                 <span>{item.date}</span>
-              </section>
+              </div>
             ))}
           </article>
-        </section>
+        </div>
 
         <section className="resume-card resume-skills">
           <header className="resume-section-title">
             <BriefcaseBusiness size={19} />
-            <h2>Skills</h2>
+            <h2>Habilidades</h2>
           </header>
-          <section className="resume-skill-list">
+          <div className="resume-skill-list">
             {skills.map(({ name, icon: Icon }) => (
-              <article className="resume-skill" key={name}>
+              <div className="resume-skill" key={name}>
                 <Icon size={17} />
                 <span>{name}</span>
-              </article>
+              </div>
             ))}
-          </section>
+          </div>
         </section>
 
-        <section className="resume-card resume-details">
-          <span>Details</span>
+        <section className="resume-card resume-details" aria-label="Detalles de contacto">
+          <span>Detalles</span>
           <p>
             <Mail size={15} />
             juanmatabanchoyc@gmail.com
           </p>
           <p>
             <Phone size={15} />
-            +57 3024993023
+            +57 302 499 3023
           </p>
           <p>
             <MapPin size={15} />
-            Pasto, Colombia
+            Pasto, Nariño, Colombia
           </p>
-          <a href="https://github.com/juanma2025" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/juanmanuel0125" target="_blank" rel="noopener noreferrer">
+            <Linkedin size={15} />
+            LinkedIn
+          </a>
+          <a href="https://github.com/juanma2025" target="_blank" rel="noopener noreferrer">
             <Github size={15} />
             GitHub
           </a>
         </section>
-      </article>
+      </div>
     </section>
   )
 }
