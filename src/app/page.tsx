@@ -26,19 +26,14 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={springTransition}
         >
-          <div className="apple-hero__badge">
-            <span>Juan Manuel Cabrera — Product Designer</span>
-          </div>
-
           <h1 className="apple-hero__title">
-            Diseño productos digitales claros a partir de investigación real con
-            usuarios.
+            Diseño productos claros a partir de usuarios reales.
           </h1>
 
           <p className="apple-hero__subtitle">
-            UI/UX e investigación de usuarios de principio a fin: entrevistas,
-            pruebas de usabilidad, arquitectura de información e interfaces que
-            se entienden sin explicarlas en fintech, movilidad urbana y cultura.
+            Juan Manuel Cabrera — Product Designer (UI/UX + Research) en Pasto,
+            Colombia. Entrevistas, pruebas de usabilidad e interfaces en
+            fintech, movilidad urbana y cultura.
           </p>
 
           <div className="apple-hero__actions">
@@ -108,16 +103,40 @@ export default function Home() {
                   href={`/proyectos/${project.slug}`}
                   className="apple-case-card__link"
                 >
-                  <div className="apple-case-card__media">
-                    <Image
-                      src={project.coverImage}
-                      alt={`Vista previa del caso de estudio ${project.title}`}
-                      width={1200}
-                      height={750}
-                      className="apple-case-card__image"
-                      priority={index === 0}
-                      unoptimized
-                    />
+                  <div
+                    className={`apple-case-card__media ${
+                      project.isMobileCover
+                        ? "apple-case-card__media--mobile"
+                        : ""
+                    }`}
+                  >
+                    {project.coverImage ? (
+                      <Image
+                        src={project.coverImage}
+                        alt={`Vista previa del caso de estudio ${project.title}`}
+                        width={project.isMobileCover ? 328 : 1881}
+                        height={project.isMobileCover ? 717 : 1001}
+                        className={
+                          project.isMobileCover
+                            ? "apple-case-card__image--mobile"
+                            : "apple-case-card__image"
+                        }
+                        priority={index === 0}
+                      />
+                    ) : (
+                      <div className="apple-case-card__clean-preview">
+                        <span className="apple-case-card__clean-kicker">
+                          Corpocarnaval · Trabajo de grado
+                        </span>
+                        <p className="apple-case-card__clean-headline">
+                          Identidad cultural nariñense llevada a una plataforma
+                          digital viva.
+                        </p>
+                        <span className="apple-case-card__clean-cta">
+                          Explorar caso de estudio →
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="apple-case-card__body">

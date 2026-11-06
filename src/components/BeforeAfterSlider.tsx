@@ -10,6 +10,7 @@ interface BeforeAfterSliderProps {
   beforeLabel: string
   afterLabel: string
   caption?: string
+  isMobile?: boolean
 }
 
 export default function BeforeAfterSlider({
@@ -18,28 +19,34 @@ export default function BeforeAfterSlider({
   beforeLabel,
   afterLabel,
   caption,
+  isMobile = false,
 }: BeforeAfterSliderProps) {
   const [position, setPosition] = useState(50)
 
   return (
-    <figure className="ba-slider">
-      <div className="ba-slider__viewport">
-        {/* Imagen Después (Fondo completo) */}
+    <figure className={`ba-slider ${isMobile ? "ba-slider--mobile" : ""}`}>
+      <div
+        className={`ba-slider__viewport ${
+          isMobile
+            ? "ba-slider__viewport--mobile"
+            : "ba-slider__viewport--desktop"
+        }`}
+      >
+        {/* Capa Después (Fondo) */}
         <div className="ba-slider__layer">
           <Image
             src={afterImage}
             alt={afterLabel}
-            width={1200}
-            height={750}
+            fill
+            sizes={isMobile ? "(max-width: 768px) 88vw, 368px" : "(max-width: 960px) 100vw, 960px"}
             className="ba-slider__image"
-            unoptimized
           />
           <span className="ba-slider__badge ba-slider__badge--after">
             {afterLabel}
           </span>
         </div>
 
-        {/* Imagen Antes (Recortada según posición del slider) */}
+        {/* Capa Antes (Recortada según posición del slider) */}
         <div
           className="ba-slider__layer ba-slider__layer--before"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
@@ -47,17 +54,16 @@ export default function BeforeAfterSlider({
           <Image
             src={beforeImage}
             alt={beforeLabel}
-            width={1200}
-            height={750}
+            fill
+            sizes={isMobile ? "(max-width: 768px) 88vw, 368px" : "(max-width: 960px) 100vw, 960px"}
             className="ba-slider__image"
-            unoptimized
           />
           <span className="ba-slider__badge ba-slider__badge--before">
             {beforeLabel}
           </span>
         </div>
 
-        {/* Línea divisora y botón central */}
+        {/* Línea divisora y control central */}
         <div
           className="ba-slider__divider"
           style={{ left: `${position}%` }}
@@ -84,4 +90,3 @@ export default function BeforeAfterSlider({
     </figure>
   )
 }
-

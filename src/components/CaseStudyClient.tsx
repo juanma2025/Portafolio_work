@@ -70,17 +70,54 @@ export default function CaseStudyClient({
             </div>
           </dl>
 
-          <figure className="case-study__cover">
-            <Image
-              src={study.coverImage}
-              alt={`Portada del caso de estudio ${study.title}`}
-              width={1200}
-              height={750}
-              className="case-study__cover-img"
-              priority
-              unoptimized
-            />
-          </figure>
+          {study.coverImage ? (
+            <figure
+              className={`case-study__cover ${
+                study.isMobileCover ? "case-study__cover--mobile" : ""
+              }`}
+            >
+              <Image
+                src={study.coverImage}
+                alt={`Portada del caso de estudio ${study.title}`}
+                width={study.isMobileCover ? 328 : 1881}
+                height={study.isMobileCover ? 717 : 1001}
+                className={
+                  study.isMobileCover
+                    ? "case-study__cover-img--mobile"
+                    : "case-study__cover-img"
+                }
+                priority
+              />
+            </figure>
+          ) : (
+            <div className="case-study__clean-showcase">
+              <div className="case-study__clean-showcase-inner">
+                <span className="case-study__section-label">
+                  Corpocarnaval · Trabajo de grado (2025 – Actualidad)
+                </span>
+                <h2>
+                  Plataforma digital cultural activa con lenguaje visual
+                  nariñense
+                </h2>
+                <p>
+                  Proyecto desarrollado como freelance junto a Corpocarnaval y
+                  el equipo de ingeniería mediante entregas iterativas
+                  (Scrum/Kanban).
+                </p>
+                {study.externalUrl && (
+                  <a
+                    href={study.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-btn apple-btn--secondary"
+                  >
+                    <span>{study.externalLabel || "Ver proyecto"}</span>
+                    <ArrowUpRight size={16} />
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
         </motion.header>
 
         {/* 2. CONTEXTO Y 3. PROBLEMA */}
@@ -91,13 +128,17 @@ export default function CaseStudyClient({
         >
           <div className="case-study__panel">
             <span className="case-study__section-label">01 · Contexto</span>
-            <h2 className="case-study__section-heading">El punto de partida</h2>
+            <h2 className="case-study__section-heading">
+              {study.sectionTitles.context}
+            </h2>
             <p className="case-study__body">{study.context}</p>
           </div>
 
           <div className="case-study__panel">
             <span className="case-study__section-label">02 · Problema</span>
-            <h2 className="case-study__section-heading">Lo que no funcionaba</h2>
+            <h2 className="case-study__section-heading">
+              {study.sectionTitles.problem}
+            </h2>
             <p className="case-study__body">{study.problem}</p>
           </div>
         </motion.section>
@@ -113,7 +154,7 @@ export default function CaseStudyClient({
               03 · Investigación ({study.research.participants})
             </span>
             <h2 className="case-study__section-title">
-              Escuchar antes de rediseñar
+              {study.sectionTitles.research}
             </h2>
             <p className="case-study__section-lead">
               {study.research.methodology}
@@ -133,7 +174,7 @@ export default function CaseStudyClient({
           </div>
         </motion.section>
 
-        {/* 5. ANTES Y DESPUÉS (SLIDER INTERACTIVO) */}
+        {/* 5. ANTES Y DESPUÉS */}
         <motion.section
           className="case-study__section"
           aria-label="Comparación antes y después"
@@ -144,64 +185,96 @@ export default function CaseStudyClient({
               04 · Antes y Después
             </span>
             <h2 className="case-study__section-title">
-              De la saturación a la claridad
+              {study.sectionTitles.beforeAfter}
             </h2>
           </div>
 
-          <BeforeAfterSlider
-            beforeImage={study.beforeAfter.beforeImage}
-            afterImage={study.beforeAfter.afterImage}
-            beforeLabel={study.beforeAfter.beforeLabel}
-            afterLabel={study.beforeAfter.afterLabel}
-            caption={study.beforeAfter.caption}
-          />
+          {study.beforeAfter ? (
+            <>
+              <BeforeAfterSlider
+                beforeImage={study.beforeAfter.beforeImage}
+                afterImage={study.beforeAfter.afterImage}
+                beforeLabel={study.beforeAfter.beforeLabel}
+                afterLabel={study.beforeAfter.afterLabel}
+                caption={study.beforeAfter.caption}
+                isMobile={study.beforeAfter.isMobile}
+              />
 
-          <ul className="case-study__changes-list">
-            {study.beforeAfter.changes.map((change) => (
-              <li key={change} className="case-study__change-item">
-                <CheckCircle2 size={18} className="case-study__check-icon" />
-                <span>{change}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.section>
-
-        {/* 6. PANTALLAS FINALES */}
-        <motion.section
-          className="case-study__section"
-          aria-label="Pantallas finales"
-          {...getReveal(0.1)}
-        >
-          <div className="case-study__section-header">
-            <span className="case-study__section-label">
-              05 · Pantallas finales
-            </span>
-            <h2 className="case-study__section-title">
-              Interfaces pensadas para entenderse sin explicación
-            </h2>
-          </div>
-
-          <div className="case-study__screens-grid">
-            {study.screens.map((screen) => (
-              <figure key={screen.title} className="case-study__screen-card">
-                <div className="case-study__screen-media">
-                  <Image
-                    src={screen.image}
-                    alt={screen.title}
-                    width={1200}
-                    height={750}
-                    className="case-study__screen-img"
-                    unoptimized
-                  />
+              <ul className="case-study__changes-list">
+                {study.beforeAfter.changes.map((change) => (
+                  <li key={change} className="case-study__change-item">
+                    <CheckCircle2 size={18} className="case-study__check-icon" />
+                    <span>{change}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : study.textComparison ? (
+            <>
+              <div className="case-study__two-col">
+                <div className="case-study__panel">
+                  <span className="case-study__section-label">
+                    {study.textComparison.beforeTitle}
+                  </span>
+                  <ul className="case-study__bullet-list">
+                    {study.textComparison.beforeItems.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
-                <figcaption className="case-study__screen-caption">
-                  <h3>{screen.title}</h3>
-                  <p>{screen.description}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+
+                <div className="case-study__panel">
+                  <span className="case-study__section-label">
+                    {study.textComparison.afterTitle}
+                  </span>
+                  <ul className="case-study__bullet-list">
+                    {study.textComparison.afterItems.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <ul className="case-study__changes-list">
+                {study.textComparison.changes.map((change) => (
+                  <li key={change} className="case-study__change-item">
+                    <CheckCircle2 size={18} className="case-study__check-icon" />
+                    <span>{change}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </motion.section>
+
+        {/* 6. PROTOTIPO EN MOVIMIENTO (si cuenta con videoDemo) */}
+        {study.videoDemo && (
+          <motion.section
+            className="case-study__section"
+            aria-label="Prototipo en movimiento"
+            {...getReveal(0.1)}
+          >
+            <div className="case-study__section-header">
+              <span className="case-study__section-label">
+                05 · Prototipo e Interacción
+              </span>
+              <h2 className="case-study__section-title">
+                {study.sectionTitles.prototypeOrScreens}
+              </h2>
+            </div>
+
+            <div className="case-study__video-wrap">
+              <video
+                src={study.videoDemo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="rounded-2xl w-full case-study__video"
+              />
+            </div>
+          </motion.section>
+        )}
 
         {/* 7. COMPONENTES Y SISTEMA */}
         <motion.section
@@ -211,10 +284,10 @@ export default function CaseStudyClient({
         >
           <div className="case-study__section-header">
             <span className="case-study__section-label">
-              06 · Componentes y Sistema
+              {study.videoDemo ? "06" : "05"} · Componentes y Sistema
             </span>
             <h2 className="case-study__section-title">
-              Consistencia y viabilidad con ingeniería
+              {study.sectionTitles.system}
             </h2>
             <p className="case-study__section-lead">
               {study.designSystem.summary}
@@ -223,7 +296,7 @@ export default function CaseStudyClient({
 
           <div className="case-study__two-col">
             <div className="case-study__panel">
-              <h3 className="case-study__sub-heading">Principios de diseño</h3>
+              <h3 className="case-study__sub-heading">Criterios de diseño</h3>
               <ul className="case-study__bullet-list">
                 {study.designSystem.principles.map((principle) => (
                   <li key={principle}>{principle}</li>
@@ -233,7 +306,7 @@ export default function CaseStudyClient({
 
             <div className="case-study__panel">
               <h3 className="case-study__sub-heading">
-                Componentes y entregables
+                Componentes e implementación
               </h3>
               <ul className="case-study__bullet-list">
                 {study.designSystem.components.map((component) => (
@@ -251,9 +324,11 @@ export default function CaseStudyClient({
           {...getReveal(0.1)}
         >
           <div className="case-study__section-header">
-            <span className="case-study__section-label">07 · Resultados</span>
+            <span className="case-study__section-label">
+              {study.videoDemo ? "07" : "06"} · Resultados
+            </span>
             <h2 className="case-study__section-title">
-              Validación con usuarios reales
+              {study.sectionTitles.results}
             </h2>
             <p className="case-study__section-lead">{study.results.summary}</p>
           </div>
@@ -288,4 +363,3 @@ export default function CaseStudyClient({
     </article>
   )
 }
-
