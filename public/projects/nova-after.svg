@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <rect width="1200" height="750" rx="32" fill="#F5F5F7"/>
+  <rect x="80" y="60" width="1040" height="630" rx="24" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="2"/>
+  <text x="130" y="120" fill="#0071E3" font-family="sans-serif" font-size="14" font-weight="700">DESPUÉS · JERARQUÍA MINIMALISTA Y LENGUAJE UNIFICADO</text>
+  <text x="130" y="185" fill="#86868B" font-family="sans-serif" font-size="16" font-weight="500">Disponible para gastar hoy</text>
+  <text x="130" y="245" fill="#1D1D1F" font-family="sans-serif" font-size="54" font-weight="700">$ 1.480.000</text>
+  <rect x="820" y="185" width="230" height="52" rx="26" fill="#0071E3"/>
+  <text x="875" y="217" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="600">Enviar dinero</text>
+  <!-- Clean 2-column summary -->
+  <rect x="130" y="300" width="445" height="150" rx="20" fill="#FAFAFC" stroke="#E5E5EA"/>
+  <text x="166" y="348" fill="#86868B" font-family="sans-serif" font-size="14" font-weight="500">Presupuesto semanal restante</text>
+  <text x="166" y="395" fill="#1D1D1F" font-family="sans-serif" font-size="30" font-weight="700">$ 145.000</text>
+  <rect x="166" y="416" width="260" height="8" rx="4" fill="#0071E3"/>
+  <rect x="605" y="300" width="445" height="150" rx="20" fill="#FAFAFC" stroke="#E5E5EA"/>
+  <text x="641" y="348" fill="#86868B" font-family="sans-serif" font-size="14" font-weight="500">Próximo pago programado</text>
+  <text x="641" y="395" fill="#1D1D1F" font-family="sans-serif" font-size="30" font-weight="700">Suscripción · $ 14.900</text>
+  <text x="641" y="424" fill="#86868B" font-family="sans-serif" font-size="13">En 4 días · Sin comisiones ocultas</text>
+  <!-- Recent activity clean list -->
+  <rect x="130" y="485" width="920" height="140" rx="20" fill="#FAFAFC" stroke="#E5E5EA"/>
+  <text x="166" y="530" fill="#1D1D1F" font-family="sans-serif" font-size="16" font-weight="600">Movimientos claros en lenguaje cotidiano</text>
+  <text x="166" y="564" fill="#6E6E73" font-family="sans-serif" font-size="14">Validado con 5 estudiantes: lectura inmediata del saldo real y control diario en un solo vistazo.</text>
+</svg>
+

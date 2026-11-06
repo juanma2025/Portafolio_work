@@ -1,111 +1,121 @@
-"use client";
-
-const THEME_DARK = "dark"
+"use client"
 
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X, Sun, Moon, Download } from "lucide-react"
 import { useTheme } from "@/context/ThemeContext"
 
+const THEME_DARK = "dark"
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Sobre mí", href: "/sobre-mi" },
+  { label: "Currículum", href: "/resume" },
+  { label: "Contacto", href: "/contacto" },
+]
+
 export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const { theme, toggleTheme } = useTheme()
-    const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
+  const pathname = usePathname()
 
-  // Function to get the appropriate icon based on current theme
-    const getThemeIcon = () => {
-    return theme === THEME_DARK ? (
-        <Sun size={20} className="text-yellow-400" />
-    ) : (
-        <Moon size={20} className="text-zinc-800" />
-    )
-    }
+  const isLinkActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    if (href === "/#proyectos") return pathname.startsWith("/proyectos")
+    if (href === "/sobre-mi")
+      return pathname === "/sobre-mi" || pathname === "/about"
+    if (href === "/contacto")
+      return pathname === "/contacto" || pathname === "/contact"
+    return pathname === href
+  }
 
-  // Function to get the appropriate aria-label text
-    const getAriaLabel = () => {
-    return theme === THEME_DARK ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
-    }
+  const ariaThemeLabel =
+    theme === THEME_DARK ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
 
-    const navItems = [
-    { label: "INICIO", href: "/" },
-    { label: "SOBRE MÍ", href: "/about" },
-    { label: "CURRÍCULUM", href: "/resume" },
-    { label: "SERVICIOS", href: "/services" },
-    { label: "CONTACTO", href: "/contact" },
-    ]
+  return (
+    <header className="apple-header-wrap">
+      <div className="apple-navbar">
+        <Link href="/" className="apple-brand">
+          <span className="apple-brand__name">Juan Manuel</span>
+          <span className="apple-brand__role">Product Designer</span>
+        </Link>
 
-    return (
-    <header className="site-header">
-        <div className="site-header__inner">
-            <Link href="/" className="flex items-center gap-2 brand-link">
-                <span className="bg-red-600 p-2 brand-mark">
-                    <span className="text-white">&lt;/&gt;</span>
-                </span>
-                <span className="text-xl font-bold brand-name">Juan Design</span>
+        {/* Navegación de escritorio */}
+        <nav className="apple-nav-desktop" aria-label="Menú principal">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`apple-nav-link ${
+                isLinkActive(item.href) ? "apple-nav-link--active" : ""
+              }`}
+            >
+              {item.label}
             </Link>
+          ))}
+        </nav>
 
-            {/* Desktop Navigation */}
-            <nav className="desktop-nav" aria-label="Menú principal">
-                {navItems.map((item) => (
-                    <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`nav-link ${pathname === item.href ? "nav-link--active" : ""}`}
-                    >
-                        {item.label}
-                    </Link>
-                ))}
+        <div className="apple-nav-actions">
+          <a
+            href="/CV_Juan_Manuel_Cabrera_Product_Designer.pdf"
+            download
+            className="apple-cv-pill"
+          >
+            <Download size={14} />
+            <span>Descargar CV</span>
+          </a>
 
-                {/* Theme Toggle Button */}
-                <button
-                    onClick={toggleTheme}
-                    className="theme-toggle"
-                    aria-label={getAriaLabel()}
-                >
-                    {getThemeIcon()}
-                </button>
-            </nav>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="apple-icon-btn"
+            aria-label={ariaThemeLabel}
+          >
+            {theme === THEME_DARK ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
 
-            {/* Mobile Navigation Toggle */}
-            <div className="flex md:hidden items-center">
-                {/* Theme Toggle Button on mobile */}
-                <button
-                    onClick={toggleTheme}
-                    className="theme-toggle mobile-theme-toggle"
-                    aria-label={getAriaLabel()}
-                >
-                    {getThemeIcon()}
-                </button>
-
-                <button
-                    className="mobile-menu-button"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Alternar menú"
-                    aria-expanded={isMenuOpen}
-                >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
+          <button
+            type="button"
+            className="apple-icon-btn apple-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Alternar menú"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
         </div>
+      </div>
 
-       {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-        <nav className="mobile-nav" aria-label="Menú móvil">
-            <div className="mobile-nav__inner">
+      {/* Menú móvil desplegable con glassmorphism */}
+      {isMenuOpen && (
+        <nav className="apple-mobile-menu" aria-label="Menú móvil">
+          <div className="apple-mobile-menu__inner">
             {navItems.map((item) => (
-                <Link
+              <Link
                 key={item.href}
                 href={item.href}
-                className={`mobile-nav__link ${pathname === item.href ? "mobile-nav__link--active" : ""}`}
+                className={`apple-mobile-link ${
+                  isLinkActive(item.href) ? "apple-mobile-link--active" : ""
+                }`}
                 onClick={() => setIsMenuOpen(false)}
-                >
+              >
                 {item.label}
-                </Link>
+              </Link>
             ))}
-            </div>
+            <a
+              href="/CV_Juan_Manuel_Cabrera_Product_Designer.pdf"
+              download
+              className="apple-mobile-cv"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Download size={15} />
+              <span>Descargar CV</span>
+            </a>
+          </div>
         </nav>
-        )}
+      )}
     </header>
-    )
+  )
 }
